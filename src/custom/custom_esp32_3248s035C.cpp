@@ -1,4 +1,4 @@
-// USAGE: - Copy this file to src\custom\my_custom_esp32_3248s035C.cpp, also copy my_custom_template.h and rename it to my_custom.h
+// USAGE: - Copy this file to src\custom\my_custom_esp32_3248s035C_esp32_3248s035C.cpp, also copy my_custom_esp32_3248s035C_template.h and rename it to my_custom.h
 //        - Uncomment in your user_config_override.h the line containing #define HASP_USE_CUSTOM 1
 //        - Led state can be set with hasp/<yourplate>/custom/led and payload {"red":1,"green":1,"blue":1} 
 //          Leds are on off only so use 1 or 0 on each led
@@ -18,8 +18,10 @@
 int iLastLightLevel = 0; // light reading from the sensor
 unsigned int iLightTolerance = 10; // to reduce messages only send light message if change is outside tolerance
 
-void custom_setup()
+void custom_esp32_3248s035C_setup()
 {
+    LOG_INFO(TAG_CUSTOM, "===> esp32-3248s035C INIT");
+
     // intialise light sensor
     pinMode(LIGHT_SENSOR, ANALOG);
     analogSetPinAttenuation(LIGHT_SENSOR, ADC_0db); // 0dB(1.0) 0~800mV
@@ -35,15 +37,15 @@ void custom_setup()
     digitalWrite(LED_GREEN, HIGH); // off is HIGH, on is LOW 
 }
 
-void custom_loop()
+void custom_esp32_3248s035C_loop()
 {
 }
 
-void custom_every_second()
+void custom_esp32_3248s035C_every_second()
 {
 }
 
-void custom_every_5seconds()
+void custom_esp32_3248s035C_every_5seconds()
 {
     char sLightLevel[32];
 
@@ -56,7 +58,7 @@ void custom_every_5seconds()
     }
 }
 
-bool custom_pin_in_use(uint8_t pin)
+bool custom_esp32_3248s035C_pin_in_use(uint8_t pin)
 {
     switch(pin) {
         case LIGHT_SENSOR:
@@ -69,13 +71,12 @@ bool custom_pin_in_use(uint8_t pin)
     }
 }
 
-void custom_get_sensors(JsonDocument& doc)
+void custom_esp32_3248s035C_get_sensors(JsonDocument& doc)
 {
 }
 
-void custom_topic_payload(const char* topic, const char* payload, uint8_t source){
-    LOG_INFO(TAG_CUSTOM, "Handling esp32-3248s035C custom message: %s => %s", topic, payload);
-    
+void custom_esp32_3248s035C_topic_payload(const char* topic, const char* payload, uint8_t source)
+{    
     // set the led bit1: red, bit2: green, bit3: blue
     if(!strcmp(topic, "led")) {
         StaticJsonDocument<1024> led_doc;

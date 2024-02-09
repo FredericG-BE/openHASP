@@ -1,1 +1,36 @@
-{"page":1,"id":10,"w":240,"obj":"label","text":"%hostname%"}
+{
+    "page": 1,
+    "id": 1,
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "obj": "label",
+    "text": "%hostname%"
+}
+{
+    "page": 1,
+    "id": 2,
+    "x": 0,
+    "y": 40,
+    "w": 300,
+    "obj": "label",
+    "text": "%ip%"
+}
+{
+    "page": 1,
+    "id": 3,
+    "x": 0,
+    "y": 80,
+    "w": 300,
+    "obj": "label",
+    "text": "%version%"
+}
+{
+    "page": 1,
+    "id": 4,
+    "x": 0,
+    "y": 120,
+    "w": 300,
+    "obj": "label",
+    "text": "Waiting for Home Assistant..."
+}
