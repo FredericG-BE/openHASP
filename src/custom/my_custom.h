@@ -1,10 +1,6 @@
 /* MIT License - Copyright (c) 2019-2022 Francis Van Roie
    For full license information read the LICENSE file in the project folder */
 
-// USAGE: - Copy this file and rename it to my_custom.h
-//        - uncomment in your user_config_override.h the line containing #define HASP_USE_CUSTOM 1
-//
-
 #ifndef HASP_CUSTOM_H
 #define HASP_CUSTOM_H
 

@@ -1,9 +1,3 @@
-// USAGE: - Copy this file to src\custom\my_custom_esp32_3248s035C.cpp, also copy my_custom_template.h and rename it to my_custom.h
-//        - Uncomment in your user_config_override.h the line containing #define HASP_USE_CUSTOM 1
-//        - Led state can be set with hasp/<yourplate>/custom/led and payload {"red":1,"green":1,"blue":1} 
-//          Leds are on off only so use 1 or 0 on each led
-//        - Light level will be sent with the topic hasp/<yourplate>/custom/light
-//          Light level will update every 5 second only if it has changed by more than the tolerance value
 #include "hasplib.h"
 
 #if defined(HASP_USE_CUSTOM) && true
