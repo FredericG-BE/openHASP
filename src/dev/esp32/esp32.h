@@ -8,6 +8,7 @@
 #include "../device.h"
 
 #if defined(ESP32)
+#include "driver/ledc.h"
 
 #ifndef BACKLIGHT_FREQUENCY
 #define BACKLIGHT_FREQUENCY 20000
@@ -68,8 +69,13 @@ class Esp32Device : public BaseDevice {
     uint8_t _backlight_level;
     uint8_t _backlight_power;
     uint8_t _backlight_invert;
+    bool _backlight_pending;
+    bool _backlight_fading;
+    bool _backlight_fade;
 
     void update_backlight(bool fade);
+    static bool cb_backlight(const ledc_cb_param_t *param, void *user_arg);
+    void end_backlight_fade();
 };
 
 } // namespace dev
